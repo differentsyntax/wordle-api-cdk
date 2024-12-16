@@ -73,7 +73,7 @@ npm install
 
 ### 3. Configure Environment Variables
 
-Create an `.env` file in the root directory with the following variables:
+Set the following environment variables for newly created lambda functions through AWS console or replace the variables with URL locally:
 
 ```env
 GET_WORD_API="https://random-word-api.herokuapp.com/word"
