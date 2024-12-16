@@ -3,6 +3,8 @@
 
 This project provides an infrastructure-as-code (IaC) solution using the AWS Cloud Development Kit (AWS CDK) to deploy and manage a serverless backend for a Wordle-like application. The API is designed to handle word validation, game logic, and other backend features necessary for a Wordle game.
 
+Try out the corresponding UI implementation to play the game locally: [Wordle-UI](https://github.com/differentsyntax/wordle-ui)
+
 ## Table of Contents
 
 - [Overview](#overview)
