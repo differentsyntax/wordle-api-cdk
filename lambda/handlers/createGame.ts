@@ -37,6 +37,11 @@ export async function handler(event: LambdaEvent): Promise<LambdaResponse> {
     console.error("Error parsing request body:", (error as Error).message);
     return {
       statusCode: 400,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
+      },
       body: JSON.stringify({ error: "Invalid request body." }),
     };
   }
@@ -48,6 +53,11 @@ export async function handler(event: LambdaEvent): Promise<LambdaResponse> {
   if (!wordLength || wordLength < 2) {
     return {
       statusCode: 400,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
+      },
       body: JSON.stringify({ error: "Invalid word length." }),
     };
   }
@@ -76,6 +86,11 @@ export async function handler(event: LambdaEvent): Promise<LambdaResponse> {
       console.error("TABLE_NAME environment variable is not set.");
       return {
         statusCode: 500,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization",
+          "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
+        },
         body: JSON.stringify({ error: "Internal server error." }),
       };
     }
@@ -98,13 +113,18 @@ export async function handler(event: LambdaEvent): Promise<LambdaResponse> {
         gameId,
         maxAttempts,
         currentState: [],
-        targetWord: targetWord,
+        targetWord,
       }),
     };
   } catch (error) {
     console.error("Error:", (error as Error).message);
     return {
       statusCode: 500,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
+      },
       body: JSON.stringify({ error: "Could not create game." }),
     };
   }
