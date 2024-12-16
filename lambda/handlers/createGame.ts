@@ -98,6 +98,7 @@ export async function handler(event: LambdaEvent): Promise<LambdaResponse> {
         gameId,
         maxAttempts,
         currentState: [],
+        targetWord: targetWord,
       }),
     };
   } catch (error) {
