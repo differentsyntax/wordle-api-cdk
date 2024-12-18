@@ -107,7 +107,9 @@ After deployment, the API endpoint will be displayed in the terminal. Use this e
 Use tools like [Postman](https://www.postman.com/) or [curl](https://curl.se/) to test the API locally:
 
 ```bash
-curl -X POST <API_ENDPOINT>/validate-word -d '{"word":"example"}'
+curl -X POST <api-gateway-url>/game \
+     -H "Content-Type: application/json" \
+     -d '{"wordLength": 5}'
 ```
 
 ## Contributing
