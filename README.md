@@ -76,7 +76,7 @@ npm install
 Set the following environment variables for newly created lambda functions through AWS console or replace the variables with URL locally:
 
 ```env
-GET_WORD_API="https://random-word-api.herokuapp.com/word"
+GET_WORD_API="https://random-word-api.vercel.app/api"
 ```
 Note: Using random word API to fetch a random valid dictionary word. 
 
