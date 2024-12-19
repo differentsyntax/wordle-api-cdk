@@ -132,7 +132,7 @@ export async function handler(event: LambdaEvent): Promise<LambdaResponse> {
 
 async function fetchRandomWord(wordLength: number): Promise<string> {
   try {
-    const res = await fetch(`${GET_WORD_API}?length=${wordLength}`);
+    const res = await fetch(`${GET_WORD_API}?words=1&length=${wordLength}`);
     if (!res.ok) {
       throw new Error(`Failed to fetch word: ${res.statusText}`);
     }
@@ -145,7 +145,11 @@ async function fetchRandomWord(wordLength: number): Promise<string> {
 
     return data[0];
   } catch (error) {
-    console.error("Error while fetching word:", (error as Error).message);
+    console.error(
+      "Error while fetching word:",
+      (error as Error).message,
+      `${GET_WORD_API}?length=${wordLength}`
+    );
     throw error;
   }
 }
